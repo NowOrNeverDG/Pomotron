@@ -1,0 +1,605 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		354402032AB2C4D200AA08A3 /* PomotronApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354402022AB2C4D200AA08A3 /* PomotronApp.swift */; };
+		354402052AB2C4D200AA08A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354402042AB2C4D200AA08A3 /* ContentView.swift */; };
+		354402072AB2C4D600AA08A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 354402062AB2C4D600AA08A3 /* Assets.xcassets */; };
+		3544020A2AB2C4D600AA08A3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 354402092AB2C4D600AA08A3 /* Preview Assets.xcassets */; };
+		3544020C2AB2C4D600AA08A3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3544020B2AB2C4D600AA08A3 /* Persistence.swift */; };
+		3544020F2AB2C4D600AA08A3 /* Pomotron.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3544020D2AB2C4D600AA08A3 /* Pomotron.xcdatamodeld */; };
+		3544021A2AB2C4D600AA08A3 /* PomotronTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354402192AB2C4D600AA08A3 /* PomotronTests.swift */; };
+		354402242AB2C4D600AA08A3 /* PomotronUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354402232AB2C4D600AA08A3 /* PomotronUITests.swift */; };
+		354402262AB2C4D600AA08A3 /* PomotronUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354402252AB2C4D600AA08A3 /* PomotronUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		354402162AB2C4D600AA08A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 354401F72AB2C4D200AA08A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 354401FE2AB2C4D200AA08A3;
+			remoteInfo = Pomotron;
+		};
+		354402202AB2C4D600AA08A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 354401F72AB2C4D200AA08A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 354401FE2AB2C4D200AA08A3;
+			remoteInfo = Pomotron;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		354401FF2AB2C4D200AA08A3 /* Pomotron.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pomotron.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		354402022AB2C4D200AA08A3 /* PomotronApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomotronApp.swift; sourceTree = "<group>"; };
+		354402042AB2C4D200AA08A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		354402062AB2C4D600AA08A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		354402092AB2C4D600AA08A3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3544020B2AB2C4D600AA08A3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		3544020E2AB2C4D600AA08A3 /* Pomotron.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pomotron.xcdatamodel; sourceTree = "<group>"; };
+		354402102AB2C4D600AA08A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		354402152AB2C4D600AA08A3 /* PomotronTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomotronTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		354402192AB2C4D600AA08A3 /* PomotronTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomotronTests.swift; sourceTree = "<group>"; };
+		3544021F2AB2C4D600AA08A3 /* PomotronUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PomotronUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		354402232AB2C4D600AA08A3 /* PomotronUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomotronUITests.swift; sourceTree = "<group>"; };
+		354402252AB2C4D600AA08A3 /* PomotronUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PomotronUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		354401FC2AB2C4D200AA08A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		354402122AB2C4D600AA08A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3544021C2AB2C4D600AA08A3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		354401F62AB2C4D200AA08A3 = {
+			isa = PBXGroup;
+			children = (
+				354402012AB2C4D200AA08A3 /* Pomotron */,
+				354402182AB2C4D600AA08A3 /* PomotronTests */,
+				354402222AB2C4D600AA08A3 /* PomotronUITests */,
+				354402002AB2C4D200AA08A3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		354402002AB2C4D200AA08A3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				354401FF2AB2C4D200AA08A3 /* Pomotron.app */,
+				354402152AB2C4D600AA08A3 /* PomotronTests.xctest */,
+				3544021F2AB2C4D600AA08A3 /* PomotronUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		354402012AB2C4D200AA08A3 /* Pomotron */ = {
+			isa = PBXGroup;
+			children = (
+				354402022AB2C4D200AA08A3 /* PomotronApp.swift */,
+				354402042AB2C4D200AA08A3 /* ContentView.swift */,
+				354402062AB2C4D600AA08A3 /* Assets.xcassets */,
+				3544020B2AB2C4D600AA08A3 /* Persistence.swift */,
+				354402102AB2C4D600AA08A3 /* Info.plist */,
+				3544020D2AB2C4D600AA08A3 /* Pomotron.xcdatamodeld */,
+				354402082AB2C4D600AA08A3 /* Preview Content */,
+			);
+			path = Pomotron;
+			sourceTree = "<group>";
+		};
+		354402082AB2C4D600AA08A3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				354402092AB2C4D600AA08A3 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		354402182AB2C4D600AA08A3 /* PomotronTests */ = {
+			isa = PBXGroup;
+			children = (
+				354402192AB2C4D600AA08A3 /* PomotronTests.swift */,
+			);
+			path = PomotronTests;
+			sourceTree = "<group>";
+		};
+		354402222AB2C4D600AA08A3 /* PomotronUITests */ = {
+			isa = PBXGroup;
+			children = (
+				354402232AB2C4D600AA08A3 /* PomotronUITests.swift */,
+				354402252AB2C4D600AA08A3 /* PomotronUITestsLaunchTests.swift */,
+			);
+			path = PomotronUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		354401FE2AB2C4D200AA08A3 /* Pomotron */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 354402292AB2C4D600AA08A3 /* Build configuration list for PBXNativeTarget "Pomotron" */;
+			buildPhases = (
+				354401FB2AB2C4D200AA08A3 /* Sources */,
+				354401FC2AB2C4D200AA08A3 /* Frameworks */,
+				354401FD2AB2C4D200AA08A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pomotron;
+			productName = Pomotron;
+			productReference = 354401FF2AB2C4D200AA08A3 /* Pomotron.app */;
+			productType = "com.apple.product-type.application";
+		};
+		354402142AB2C4D600AA08A3 /* PomotronTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3544022C2AB2C4D600AA08A3 /* Build configuration list for PBXNativeTarget "PomotronTests" */;
+			buildPhases = (
+				354402112AB2C4D600AA08A3 /* Sources */,
+				354402122AB2C4D600AA08A3 /* Frameworks */,
+				354402132AB2C4D600AA08A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				354402172AB2C4D600AA08A3 /* PBXTargetDependency */,
+			);
+			name = PomotronTests;
+			productName = PomotronTests;
+			productReference = 354402152AB2C4D600AA08A3 /* PomotronTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3544021E2AB2C4D600AA08A3 /* PomotronUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3544022F2AB2C4D600AA08A3 /* Build configuration list for PBXNativeTarget "PomotronUITests" */;
+			buildPhases = (
+				3544021B2AB2C4D600AA08A3 /* Sources */,
+				3544021C2AB2C4D600AA08A3 /* Frameworks */,
+				3544021D2AB2C4D600AA08A3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				354402212AB2C4D600AA08A3 /* PBXTargetDependency */,
+			);
+			name = PomotronUITests;
+			productName = PomotronUITests;
+			productReference = 3544021F2AB2C4D600AA08A3 /* PomotronUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		354401F72AB2C4D200AA08A3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					354401FE2AB2C4D200AA08A3 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					354402142AB2C4D600AA08A3 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 354401FE2AB2C4D200AA08A3;
+					};
+					3544021E2AB2C4D600AA08A3 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = 354401FE2AB2C4D200AA08A3;
+					};
+				};
+			};
+			buildConfigurationList = 354401FA2AB2C4D200AA08A3 /* Build configuration list for PBXProject "Pomotron" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 354401F62AB2C4D200AA08A3;
+			productRefGroup = 354402002AB2C4D200AA08A3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				354401FE2AB2C4D200AA08A3 /* Pomotron */,
+				354402142AB2C4D600AA08A3 /* PomotronTests */,
+				3544021E2AB2C4D600AA08A3 /* PomotronUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		354401FD2AB2C4D200AA08A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3544020A2AB2C4D600AA08A3 /* Preview Assets.xcassets in Resources */,
+				354402072AB2C4D600AA08A3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		354402132AB2C4D600AA08A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3544021D2AB2C4D600AA08A3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		354401FB2AB2C4D200AA08A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3544020C2AB2C4D600AA08A3 /* Persistence.swift in Sources */,
+				354402052AB2C4D200AA08A3 /* ContentView.swift in Sources */,
+				354402032AB2C4D200AA08A3 /* PomotronApp.swift in Sources */,
+				3544020F2AB2C4D600AA08A3 /* Pomotron.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		354402112AB2C4D600AA08A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3544021A2AB2C4D600AA08A3 /* PomotronTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3544021B2AB2C4D600AA08A3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				354402262AB2C4D600AA08A3 /* PomotronUITestsLaunchTests.swift in Sources */,
+				354402242AB2C4D600AA08A3 /* PomotronUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		354402172AB2C4D600AA08A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 354401FE2AB2C4D200AA08A3 /* Pomotron */;
+			targetProxy = 354402162AB2C4D600AA08A3 /* PBXContainerItemProxy */;
+		};
+		354402212AB2C4D600AA08A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 354401FE2AB2C4D200AA08A3 /* Pomotron */;
+			targetProxy = 354402202AB2C4D600AA08A3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		354402272AB2C4D600AA08A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		354402282AB2C4D600AA08A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3544022A2AB2C4D600AA08A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Pomotron/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GeDingUniverse.Pomotron;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3544022B2AB2C4D600AA08A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Pomotron/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GeDingUniverse.Pomotron;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3544022D2AB2C4D600AA08A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GeDingUniverse.PomotronTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pomotron.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pomotron";
+			};
+			name = Debug;
+		};
+		3544022E2AB2C4D600AA08A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GeDingUniverse.PomotronTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pomotron.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Pomotron";
+			};
+			name = Release;
+		};
+		354402302AB2C4D600AA08A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GeDingUniverse.PomotronUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Pomotron;
+			};
+			name = Debug;
+		};
+		354402312AB2C4D600AA08A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.GeDingUniverse.PomotronUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Pomotron;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		354401FA2AB2C4D200AA08A3 /* Build configuration list for PBXProject "Pomotron" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				354402272AB2C4D600AA08A3 /* Debug */,
+				354402282AB2C4D600AA08A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		354402292AB2C4D600AA08A3 /* Build configuration list for PBXNativeTarget "Pomotron" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3544022A2AB2C4D600AA08A3 /* Debug */,
+				3544022B2AB2C4D600AA08A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3544022C2AB2C4D600AA08A3 /* Build configuration list for PBXNativeTarget "PomotronTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3544022D2AB2C4D600AA08A3 /* Debug */,
+				3544022E2AB2C4D600AA08A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3544022F2AB2C4D600AA08A3 /* Build configuration list for PBXNativeTarget "PomotronUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				354402302AB2C4D600AA08A3 /* Debug */,
+				354402312AB2C4D600AA08A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3544020D2AB2C4D600AA08A3 /* Pomotron.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3544020E2AB2C4D600AA08A3 /* Pomotron.xcdatamodel */,
+			);
+			currentVersion = 3544020E2AB2C4D600AA08A3 /* Pomotron.xcdatamodel */;
+			path = Pomotron.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 354401F72AB2C4D200AA08A3 /* Project object */;
+}
