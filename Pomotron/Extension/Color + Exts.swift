@@ -23,4 +23,12 @@ extension Color {
     static let pastelPink = Color(hex: 0xFFCEF3)
     static let nearlyWhite = Color(hex: 0xFDFDFD)
     static let vibrantOrange = Color(hex: 0xFF9F68)
+    
+    ///Task view Color
+    static let taskBlue = Color("TaskColorBlue")
+    static let taskGray = Color("TaskColorGray")
+    static let taskPink = Color("TaskColorPink")
+    static let taskYellow = Color("TaskColorYellow")
+    static let taskWhite = Color("TaskColorBlue")
 }
+
