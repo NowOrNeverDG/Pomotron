@@ -11,10 +11,13 @@ struct TaskRowView: View {
     @Bindable var task: Task
     /// Model Context
     @Environment(\.modelContext) private var context
+    
+    @State private var taskTitle: String = ""
+    
     var body: some View {
         HStack(alignment: .top, spacing: 15) {
             Circle()
-                .fill(.blue)
+                .fill(indicatorlColor)
                 .frame(width: 10, height: 10)
                 .padding(4)
                 .background(.white.shadow(.drop(color: .black.opacity(0.1), radius: 3)), in: .circle)
@@ -23,20 +26,31 @@ struct TaskRowView: View {
                         .foregroundStyle(.clear)
                         .contentShape(.circle)
                         .frame(width: 50, height:  50)
-                        .onTapGesture {
-                            withAnimation(.snappy) {
-                                task.isCompleted.toggle()
-                            }
-                        }
                 }
             
+            //Showed Task Title
             VStack(alignment: .leading, spacing: 8) {
-                Text(task.taskTitle)
+                TextField("Task Title", text: $taskTitle)
                     .fontWeight(.semibold)
                     .foregroundStyle(.black)
-                    .strikethrough(task.isCompleted, pattern: .solid, color: .black)
+                    .onSubmit {
+                        /// If TaskTitle is Empty, Then Deleting the Task!
+                        /// You can remove this feature, if you don't want to delete the Task even after the TextField is Empty
+                        if taskTitle == "" {
+                            context.delete(task)
+                            try? context.save()
+                        }
+                    }
+                    .onChange(of: taskTitle, initial: false) { oldValue, newValue in
+                        task.title = newValue
+                    }
+                    .onAppear {
+                        if taskTitle.isEmpty {
+                            taskTitle = task.title
+                        }
+                    }
                 
-                Label(task.creationDate.format("hh:mm a"), systemImage: "clock")
+                Text("\(task.creationDate.format("hh:mm a")) - \(task.creationDate.format("hh:mm a"))")
                     .font(.caption)
                     .foregroundStyle(.black)
                 
@@ -44,7 +58,6 @@ struct TaskRowView: View {
             .padding(15)
             .hSpacing(.leading)
             .background(task.tintColor, in: .rect(topLeadingRadius: 15, bottomLeadingRadius: 15))
-            .strikethrough(task.isCompleted, pattern: .solid, color: .black)
             .contentShape(.contextMenuPreview, .rect(cornerRadius: 15))
             .contextMenu {
                 Button("Delete Task", role: .destructive) {
@@ -52,17 +65,12 @@ struct TaskRowView: View {
                     context.delete(task)
                     try? context.save()
                 }
-            .offset(y: -8)
-
+                .offset(y: -8)
             }
         }
     }
     
-    var indicatorlCoor: Color {
-        if task.isCompleted {
-            return .green
-        }
-        
+    var indicatorlColor: Color {
         return task.creationDate.isSameHour ? .blue : (task.creationDate.isPast ? .red : .black)
     }
 }

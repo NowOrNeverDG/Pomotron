@@ -13,45 +13,68 @@ struct NewTaskView: View {
     /// Model context for saving date
     @Environment(\.modelContext) private var context
     
+    /// Task Details
     @State private var taskTitle: String = ""
-    @State private var taskDate: Date = .init()
+    @State private var taskCreationDate: Date = .init()
+    @State private var taskStartDate: Date = .init()
+    @State private var taskEndDate: Date = .init()
+    @State private var taskTags: [String] = []
     @State private var taskColor: String = "TaskColor 1"
+
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
+            ///Closed New Task
             Button {
                 dismiss()
             } label: {
-                Image(systemName: "xmark.circle.fill")
+                Image(systemName: "xmark")
                     .font(.title)
                     .tint(.red)
             }
             .hSpacing(.leading)
             
+            ///Task Title
             VStack(alignment: .leading, spacing: 8) {
                 Text("Task Title")
                     .font(.caption)
                     .foregroundStyle(.gray)
                 
-                TextField("Go for a Walk!", text: $taskTitle)
+                TextField("", text: $taskTitle)
                     .padding(.vertical, 12)
                     .padding(.horizontal, 15)
                     .background(.white.shadow(.drop(color: .black.opacity(0.25), radius: 2)), in: .rect(cornerRadius: 10))
             }
             .padding(.top, 5)
             
+            /// Data Picker & Color Selection Pack
             HStack(spacing: 12) {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Task Date")
-                        .font(.caption)
-                        .foregroundStyle(.gray)
+                VStack {
+                    /// Stack Time
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Start Time")
+                            .font(.caption)
+                            .foregroundStyle(.gray)
+                        
+                        DatePicker("", selection: $taskStartDate)
+                            .datePickerStyle(.compact)
+                            .scaleEffect(0.9, anchor: .leading)
+                    }
+                    .padding(.trailing, -15)
                     
-                    DatePicker("", selection: $taskDate)
-                        .datePickerStyle(.compact)
-                        .scaleEffect(0.9, anchor: .leading)
+                    /// End Time
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("End Time")
+                            .font(.caption)
+                            .foregroundStyle(.gray)
+                        
+                        DatePicker("", selection: $taskEndDate)
+                            .datePickerStyle(.compact)
+                            .scaleEffect(0.9, anchor: .leading)
+                    }
+                    .padding(.trailing, -15)
                 }
-                /// Giving some space for tapping
-                .padding(.trailing, -15)
                 
+                /// Color selection
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Task Color")
                         .font(.caption)
@@ -59,8 +82,7 @@ struct NewTaskView: View {
                     
                     let colors: [String] = (1...5).compactMap { index -> String in
                         return "TaskColor \(index)"
-                    }
-                    
+                    }                    
                     HStack(spacing: 0) {
                         ForEach(colors, id: \.self) { color in
                             Circle()
@@ -86,16 +108,16 @@ struct NewTaskView: View {
 
             Spacer(minLength: 0)
             
+            /// Saving Task
             Button(action: {
-                /// Saving Task
-                let task = Task(taskTitle: taskTitle, creationDate: taskDate, tint: taskColor)
+                let task = Task(title: taskTitle, startDate: taskStartDate, endDate: taskEndDate, tint: taskColor)
                 do {
                     context.insert(task)
                     try context.save()
                     /// After Successful Task Creation, Dismissing the view
                     dismiss()
                 } catch {
-                    print(error.localizedDescription)
+                    print("[New Task View] Saving Task Error: \(error.localizedDescription)")
                 }
             }, label: {
                 Text("Creat Task")
@@ -110,7 +132,7 @@ struct NewTaskView: View {
             .disabled(taskTitle == "")
             .opacity(taskTitle == "" ? 0.5 : 1)
         }
-        .padding(15)
+        .padding(20)
     }
 }
 

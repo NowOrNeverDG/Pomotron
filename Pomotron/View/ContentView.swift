@@ -6,15 +6,14 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-    let coreDataManager = CoreDataManager<Record>(NSPersistentContainer(name: "Pomotron"))
-    
+
     var body: some View {
-        let viewModel = RecordViewModel(coreDataManager)
-        TimerView(timeVM: TimerViewModel(), recordVM: viewModel)
+        TabView {
+            RecordView()
+                .tabItem { Label("Task", systemImage: "doc") }
+        }
     }
 }
 
@@ -25,8 +24,6 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+#Preview {
+    ContentView()
 }

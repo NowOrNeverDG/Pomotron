@@ -12,6 +12,7 @@ struct TasksView: View {
     @Binding var currentDate: Date
     /// SwiftData Dynamic Query
     @Query private var tasks: [Task]
+    
     init(currentDate: Binding<Date>) {
         self._currentDate = currentDate
         /// Predicate
@@ -22,7 +23,7 @@ struct TasksView: View {
             return $0.creationDate >= startOfDate && $0.creationDate < endOfDate
         }
         /// Sorting
-        let sortDescriptor = [SortDescriptor(\Task.creationDate, order: .forward)]
+        let sortDescriptor = [SortDescriptor(\Task.startDate, order: .forward)]
         self._tasks = Query(filter: predicate, sort: sortDescriptor, animation: .snappy)
     }
     
