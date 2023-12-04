@@ -8,21 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-
+    
     var body: some View {
         TabView {
-            RecordView()
-                .tabItem { Label("Task", systemImage: "doc") }
+            TasksView()
+                .tabItem { Label("Tasks", systemImage: "book.circle.fill") }
+            StatsView()
+                .tabItem { Label("Stats", systemImage: "doc") }
         }
+        
     }
 }
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 #Preview {
     ContentView()
