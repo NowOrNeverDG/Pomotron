@@ -73,6 +73,35 @@ extension MockData {
         return mockTask
     }
     
+    // Function to get the start and end dates of the week
+    func weekRange(for date: Date) -> (start: Date, end: Date) {
+        let calendar = Calendar.current
+        let startOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date))!
+        let endOfWeek = calendar.date(byAdding: .day, value: 6, to: startOfWeek)!
+        return (start: startOfWeek, end: endOfWeek)
+    }
+
+    // Function to format date range
+    func formatWeekRange(from date: Date) -> String {
+        let (start, end) = weekRange(for: date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d"
+        return "\(dateFormatter.string(from: start)) - \(dateFormatter.string(from: end))"
+    }
+
+    // Function to aggregate tasks by week range
+    func aggregateTasksByWeekRange() -> [String: Int] {
+        var weeklyTaskCounts = [String: Int]()
+
+        for (date, tasks) in MockData.mockTasksDic {
+            let weekRangeStr = formatWeekRange(from: date)
+            weeklyTaskCounts[weekRangeStr, default: 0] += tasks.count
+        }
+
+        return weeklyTaskCounts
+    }
+
+    
 }
 
 struct MockTask {

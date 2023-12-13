@@ -35,6 +35,11 @@ struct StatsView: View {
                 .frame(maxHeight:100)
             
             DayStatsView()
+                .frame(maxHeight: 150)
+            
+            WeekStatsView()
+                .frame(maxHeight: 150)
+
         }
         .padding()
 
@@ -82,21 +87,39 @@ struct StatsView: View {
     
     @ViewBuilder
     func DayStatsView() -> some View {
-        VStack {
-            Chart(Array(MockData.mockTasksDic.keys).sorted().reversed(), id: \.self) { index in
-                LineMark(x: .value("日期", index.format("dd MMM")),
-                         y: .value("Pomo数", MockData.mockTasksDic[index]?.count ?? 0))
-                .interpolationMethod(.monotone)
+        ZStack {
+            RoundedRectangle(cornerRadius: 14)
+                .stroke(lineWidth: 1)
+            
+            VStack {
+                Chart(Array(MockData.mockTasksDic.keys).sorted().reversed(), id: \.self) { index in
+                    LineMark(x: .value("日期", index.format("dd MMM")),
+                             y: .value("Pomo数", MockData.mockTasksDic[index]?.count ?? 0))
+                    .interpolationMethod(.monotone)
+                }
+                .foregroundStyle(.green)
+                .chartScrollableAxes(.horizontal)
+                .chartYScale(domain: [0,10])
+                .chartXVisibleDomain(length: 5)
+                .chartYAxis {
+                    AxisMarks(values:[0,4,8,12])
+                }
+                .chartXAxis {
+                    AxisMarks(stroke: StrokeStyle(lineWidth: 0))
+                }
+                .frame(maxHeight: 90)
+                .padding(.top)
             }
-            .foregroundStyle(.green)
-            .chartScrollableAxes(.horizontal)
-            .chartYScale(domain: [0,10])
-            .chartXVisibleDomain(length: 5)
-            .chartYAxis {
-                AxisMarks(values:[0,4,8,12])
-            }
-            .chartXAxis {
-                AxisMarks(stroke: StrokeStyle(lineWidth: 0))
+        }
+    }
+    
+    @ViewBuilder
+    func WeekStatsView() -> some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 14)
+                .stroke(lineWidth: 1)
+            
+            VStack {
             }
         }
     }
