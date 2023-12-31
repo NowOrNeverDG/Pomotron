@@ -20,6 +20,7 @@
 		3585391A2B18797F0092F854 /* CalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358539192B18797F0092F854 /* CalendarManager.swift */; };
 		3585391E2B187A070092F854 /* TasksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585391D2B187A070092F854 /* TasksView.swift */; };
 		358539202B19A2AF0092F854 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585391F2B19A2AF0092F854 /* MockData.swift */; };
+		35987C1C2B31436A00DF0FD8 /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35987C1B2B31436A00DF0FD8 /* Date + Extension.swift */; };
 		35CF77DA2AC52EEF00096236 /* View + Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CF77D92AC52EEF00096236 /* View + Exts.swift */; };
 		35CF77DC2AC530DD00096236 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CF77DB2AC530DD00096236 /* Date+Extension.swift */; };
 		35CF77E32AC5524C00096236 /* OffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CF77E22AC5524C00096236 /* OffsetKey.swift */; };
@@ -61,6 +62,7 @@
 		358539192B18797F0092F854 /* CalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarManager.swift; sourceTree = "<group>"; };
 		3585391D2B187A070092F854 /* TasksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksView.swift; sourceTree = "<group>"; };
 		3585391F2B19A2AF0092F854 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		35987C1B2B31436A00DF0FD8 /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
 		35CF77D92AC52EEF00096236 /* View + Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + Exts.swift"; sourceTree = "<group>"; };
 		35CF77DB2AC530DD00096236 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		35CF77E22AC5524C00096236 /* OffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetKey.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				350697932B14FFC20022E978 /* CoreDataManager.swift */,
 				358539192B18797F0092F854 /* CalendarManager.swift */,
 				3585391F2B19A2AF0092F854 /* MockData.swift */,
+				35987C1B2B31436A00DF0FD8 /* Date + Extension.swift */,
 				358539162B1878150092F854 /* Pomotron.xcdatamodeld */,
 				35CF77D62AC192FE00096236 /* Extension */,
 				35CF77D52AC192D500096236 /* View */,
@@ -334,6 +337,7 @@
 				35FED8002AE0BC0400A8417F /* StatsType.swift in Sources */,
 				3506977B2B1452320022E978 /* StatsView.swift in Sources */,
 				35CF77E32AC5524C00096236 /* OffsetKey.swift in Sources */,
+				35987C1C2B31436A00DF0FD8 /* Date + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

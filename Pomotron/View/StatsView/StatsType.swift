@@ -9,5 +9,6 @@ import Foundation
 
 enum StatsType: String, CaseIterable {
     case PomoStats = "Pomo Stats"
+    case TodoStats = "Todo Stats"
     case TimeStats = "Time Stats"
 }
