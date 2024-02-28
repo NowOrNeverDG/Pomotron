@@ -10,42 +10,39 @@ import Charts
 
 struct StatsView: View {
 
-    
     @Environment(\.colorScheme) var scheme
 
     @State private var statsType: StatsType = .PomoStats
-    @State private var rawSelectedDate: Date? = nil
-
-    @State private var pressDayCount = 0
-    @State private var pressWeekCount = 0
     
     var body: some View {
         /// Statistic View
-        //title: 月pomo总数，周pomo总数，日pomo总数
-        
-        //title: 默认最高pomo的time和量 + 摸了指定day的pomo和量
-        //每日完成pomo的量
-        
-        //title: 默认最高pomo的day和量 + 摸了指定day的pomo的day和量
-        //每周完成pomo的量
-        
-        //title: 默认最高pomo的数和量， 摸了指定pomo的数和量
-        //pomo tag分布 barmark3
-        
-        //title: 默认最高周pomo的数和量，摸了指定周pomo的数和量
-        //从这周起往前，向前一共八周的周pomo的数和量
-            VStack {
-                /// Segmneted Picker
-                PickerView()
-                SumView()
-                DayStatsView()
-                WeekStatsView()
+        //月pomo总数，周pomo总数，日pomo总数
+        //最近28天的时间内，每日的pomo量：线形图，可拉拽
+        //最近7天的时间，每日的pomo量：柱状图
+        //最近4周的时间，每周的pomo量：柱状图
+        //最近4周的时间，每个时段的pomo量：柱状图
+        //最近28天的时间内，tag的分布：饼状图
+        VStack {
+            PickerView()
+                .padding()
+
+            ScrollView {
+                VStack {
+                    /// Segmneted Picker
+                    SumView()
+                    Recent28DaysDailyStatsView()
+                    Recent7DaysDailyStatsView()
+                    Recent4WeeksWeeklyStatsView()
+                    TagStatsView()
+                }
+                .padding()
             }
-            .padding()
+        }
+        
     }
     
     @ViewBuilder
-    func PickerView() -> some View {
+    private func PickerView() -> some View {
         Picker("", selection: $statsType) {
             ForEach(StatsType.allCases, id: \.rawValue) {
                 Text($0.rawValue)
@@ -57,20 +54,20 @@ struct StatsView: View {
     }
     
     @ViewBuilder
-    func SumView() -> some View {
+    private func SumView() -> some View {
         HStack {
             VStack {
-                Text("月 POMO")
+                Text("Mothly")
                 Text("\(MockData.mockMonthlyTasksCount)")
             }
             Spacer()
             VStack {
-                Text("周 POMO")
+                Text("Weekly")
                 Text("\(MockData.mockWeeklyTasksCount)")
             }
             Spacer()
             VStack {
-                Text("日 POMO")
+                Text("Daily")
                 Text("\(MockData.mockDailyTasksCount)")
             }
         }
@@ -84,26 +81,49 @@ struct StatsView: View {
     }
     
     @ViewBuilder
-    func DayStatsView() -> some View {
+    private func Recent28DaysDailyStatsView() -> some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Count: \(pressWeekCount)")
+            Text("最近28天: \(MockData.mockRecent28DaysTasks.totalCount)")
                 .fontWeight(.semibold)
                 .foregroundColor(.gray)
-                
-            Chart(MockData.mockDayTasksCountInRecentMonth, id:\.0) { dayTasks in
-                LineMark(x: .value("Date", dayTasks.0),
-                         y: .value("Pomo", dayTasks.1))
+            
+            Chart(MockData.mockRecent28DaysTasks.recentDaysTasksArr) {
+                LineMark(x: .value("Date", $0.date),
+                         y: .value("Pomo", $0.taskCount))
                 .interpolationMethod(.monotone)
             }
             .foregroundStyle(.green)
             .chartScrollableAxes(.horizontal)
-            .chartYScale(domain: [0,10])
-            //.chartXVisibleDomain(length: 5)
-            .chartYAxis {
-                AxisMarks(values:[0,4,8])
-            }
-            .chartXAxis {
-                AxisMarks(stroke: StrokeStyle(lineWidth: 0))
+            .chartXAxis { AxisMarks(stroke: StrokeStyle(lineWidth: 0)) }
+        }
+        .padding()
+        .background {
+            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .fill((scheme == .dark ? Color.black : Color.white).shadow(.drop(radius: 2)))
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+    }
+    
+    @ViewBuilder
+    private func Recent7DaysDailyStatsView() -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("最近7天: \(MockData.mockRecent7DaysTasks.totalCount)")
+                .fontWeight(.semibold)
+                .foregroundColor(.gray)
+            
+            Chart(MockData.mockRecent7DaysTasks.recentDaysTasksArr) {
+                BarMark(x: .value("Day", $0.date.format("d/M")),
+                        y: .value("Count", $0.taskCount))
+                .foregroundStyle(Color(.blue).gradient)
+                .interpolationMethod(.catmullRom)
+
+                RuleMark(y: .value("Average", MockData.mockRecent7DaysTasks.average))
+                    .foregroundStyle(Color(.green).gradient)
+                    .annotation(position: .top,
+                                alignment: .topTrailing) {
+                        Text("Avg: "+String(format: "%.1f", MockData.mockRecent7DaysTasks.average))
+                            .foregroundStyle(Color(.green).gradient)
+                    }
             }
         }
         .padding()
@@ -115,44 +135,18 @@ struct StatsView: View {
     }
     
     @ViewBuilder
-    func WeekStatsView() -> some View {
+    private func Recent4WeeksWeeklyStatsView() -> some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Count: \(pressWeekCount)")
+            Text("最近4周：")
                 .fontWeight(.semibold)
                 .foregroundColor(.gray)
-    
-            Chart(MockData.mockWeeklyTasksArr, id: \.id) {
-                BarMark(x: .value("Week", $0.startDate),
-                        y: .value("Count", $0.count)
-                )
-                .opacity(rawSelectedDate == nil || rawSelectedDate == $0.startDate ? 1 : 0.5)
+            
+            Chart(MockData.mockRecent4WeeksWeeklyTasksArr) {
+                BarMark(x: .value("Week", $0.dateRange),
+                        y: .value("WeekTaskCount", $0.tasksCount))
                 .foregroundStyle(Color(.blue).gradient)
                 .interpolationMethod(.catmullRom)
-
-                
-                RuleMark(y: .value("Average", MockData.averageCount))
-                    .foregroundStyle(Color(.green).gradient)
-                    .annotation(position: .top,
-                                alignment: .topTrailing) {
-                        Text("Average: \(MockData.averageCount)")
-                            .foregroundStyle(Color(.green).gradient)
-                    }
-                
-                if let rawSelectedDate = rawSelectedDate {
-                    RuleMark(x: .value("Selected", rawSelectedDate))
-                    .foregroundStyle(Color.gray.opacity(0.1))
-                    .annotation ( position: .top) {
-                        Text("Hello")
-                            .padding(6)
-                            .background {
-                                RoundedRectangle(cornerRadius: 4)
-                                    .fill(Color.white)
-                                    .shadow(color: .blue, radius: 2)
-                            }
-                    }
-                }
             }
-            .chartXSelection(value: $rawSelectedDate)
         }
         .padding()
         .background {
@@ -160,7 +154,28 @@ struct StatsView: View {
                 .fill((scheme == .dark ? Color.black : Color.white).shadow(.drop(radius: 2)))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+    }
+    
+    @ViewBuilder
+    private func TagStatsView() -> some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Recent 28 Days:")
+                .fontWeight(.semibold)
+                .foregroundColor(.gray)
+            
+            Chart(MockData.mockTagCountPairArr) {
+                BarMark(x: .value("tagCount", $0.tagCount))
+                    .foregroundStyle(by: .value("Tag", $0.tag.rawValue))
 
+            }
+        }
+        .padding()
+        .background {
+            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .fill((scheme == .dark ? Color.black : Color.white).shadow(.drop(radius: 2)))
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        
     }
 }
 

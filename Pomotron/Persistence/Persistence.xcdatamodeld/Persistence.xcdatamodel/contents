@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="22G436" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="DailyTasks" representedClassName="DailyTasks" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <relationship name="tasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Task" inverseName="daily_tasks" inverseEntity="Task"/>
+        <relationship name="weekly_tasks" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeeklyTasks" inverseName="daily_tasks" inverseEntity="WeeklyTasks"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Task" representedClassName="Task" syncable="YES">
+        <attribute name="added_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="end_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="start_date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="tag_color" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="daily_tasks" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DailyTasks" inverseName="tasks" inverseEntity="DailyTasks"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="WeeklyTasks" representedClassName="WeeklyTasks" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="week" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="daily_tasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailyTasks" inverseName="weekly_tasks" inverseEntity="DailyTasks"/>
+    </entity>
+</model>

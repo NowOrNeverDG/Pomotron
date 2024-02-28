@@ -9,10 +9,15 @@ import SwiftUI
 
 @main
 struct PomotronApp: App {
-
+    
+    @StateObject var launchScreenManager = LaunchScreenManager()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ZStack {
+                ContentView()
+                if launchScreenManager.state != .completed { LaunchScreenView() }
+            }
         }
+        .environmentObject(launchScreenManager)
     }
 }

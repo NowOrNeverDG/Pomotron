@@ -19,7 +19,7 @@ final class LaunchScreenManager: ObservableObject {
     func dismiss() {
         self.state = .second
         
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
             self.state = .completed
         }
     }
