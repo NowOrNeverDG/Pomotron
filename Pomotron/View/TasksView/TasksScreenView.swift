@@ -9,15 +9,25 @@ import SwiftUI
 
 struct TasksScreenView: View {
     @State private var currentDay: Date = .init()
-    @State private var presentWeekRow: Bool = true
-    @Environment(\.managedObjectContext) private var moc
-    
+    @State private var isWeeklyRow: Bool = true
+    @State private var isAddingTask: Bool = false
+
     // Souce of Truth
     var tasks = MockData.mockAllTasksArr
     var body: some View {
-        HeaderView()
-        WeekRowView()
-        TaskListView()
+        VStack {
+            HeaderView()
+            WeekRowView()
+            Divider()
+            ScrollView(showsIndicators: false) {
+                TaskListView()
+            }
+            .sheet(isPresented: $isAddingTask) {
+                AddTaskView { task in
+                    // Store task
+                }
+            }
+        }
     }
 }
 
@@ -40,7 +50,7 @@ extension TasksScreenView {
                 .padding(.horizontal,3)
                 
                 Button {
-                    presentWeekRow.toggle()
+                    isAddingTask.toggle()
                 } label: {
                     HStack(spacing:10) {
                         Image(systemName: "plus")
@@ -55,6 +65,7 @@ extension TasksScreenView {
                     }
                     .padding(.horizontal)
                 }
+                
             }
         }
     }
@@ -96,14 +107,19 @@ extension TasksScreenView {
         }
         .padding()
     }
+    
 }
 
 
 extension TasksScreenView {
     //filter task
     func filterTasks(_ date: Date) -> [MockTask] {
-        
         return tasks.filter { $0.startTime.isSameDate(date) }
+    }
+    
+    //Sheet Modal Trigger
+    func sheetModalView() {
+        
     }
 }
 

@@ -9,13 +9,11 @@ import SwiftUI
 
 struct AddTaskView: View {
     
-//    var onAdd: (Task) -> ()
-    @Environment(\.dismiss) private var dismiss
-    
+    var onAdd: (Task) -> ()
     @State private var title = ""
     @State private var startDate: Date = .now
     @State private var endDate: Date = .now
-    @State private var tagColor: TaskTag = .black
+    @State var tagColor: TaskTag = .black
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -29,12 +27,44 @@ struct AddTaskView: View {
                 .padding(.top,2)
             
             Divider()
-                .background(.white)
+                .padding(.vertical)
+
+            TimeSettingCellView("Satrt Date", startDate)
+            TimeSettingCellView("End Date", endDate)
             
-            Text("Start Time")
+            Divider()
+                .padding(.vertical)
+
+            HStack(alignment: .center, spacing: 15) {
+                ForEach(TaskTag.allCases) { taskTag in
+                    Button {
+                        tagColor = taskTag
+                    } label: {
+                        Circle()
+                            .fill(Color(taskTag.rawValue))
+                            .frame(width:25, height:25)
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity)
+        }
+        .environment(\.colorScheme,.dark)
+        .hAlign(.leading)
+        .padding(15)
+        .background {
+            Color(tagColor.rawValue)
+                .ignoresSafeArea()
+                .animation(.easeInOut(duration: 0.2), value: tagColor.rawValue)
+        }
+    }
+    
+    @ViewBuilder
+    func TimeSettingCellView(_ title: String,_ date: Date) -> some View {
+        VStack(alignment: .leading) {
+            Text(title)
             HStack(alignment: .bottom, spacing: 12) {
                 HStack(spacing: 12) {
-                    Text(startDate.format("EEEE dd, MMMM"))
+                    Text(date.format("EEEE dd, MMMM"))
                     Image(systemName: "calendar")
                         .font(.title3)
                         .foregroundColor(.white)
@@ -50,7 +80,7 @@ struct AddTaskView: View {
                 }
                 
                 HStack(spacing: 12) {
-                    Text(startDate.format("HH:mm"))
+                    Text(date.format("HH:mm"))
                     Image(systemName: "clock")
                         .font(.title3)
                         .foregroundColor(.white)
@@ -65,68 +95,14 @@ struct AddTaskView: View {
                         .offset(y:5)
                 }
             }
-            Text("End Time")
-            HStack(alignment: .bottom, spacing: 12) {
-                HStack(spacing: 12) {
-                    Text(startDate.format("EEEE dd, MMMM"))
-                    Image(systemName: "calendar")
-                        .font(.title3)
-                        .foregroundColor(.white)
-                        .overlay {
-                            //End Date Picker
-                        }
-                }
-                .overlay(alignment: .bottom) {
-                    Rectangle()
-                        .fill(.white.opacity(0.7))
-                        .frame(height: 0.7)
-                        .offset(y:5)
-                }
-                
-                HStack(spacing: 12) {
-                    Text(startDate.format("HH:mm"))
-                    Image(systemName: "clock")
-                        .font(.title3)
-                        .foregroundColor(.white)
-                        .overlay {
-                            //End Time Picker
-                        }
-                }
-                .overlay(alignment: .bottom) {
-                    Rectangle()
-                        .fill(.white.opacity(0.7))
-                        .frame(height: 0.7)
-                        .offset(y:5)
-                }
-            }
-            
         }
-        .environment(\.colorScheme,.dark)
-        .hAlign(.leading)
-        .padding(15)
-        .background {
-            Color(tagColor.rawValue)
-                .ignoresSafeArea()
-        }
-        .toolbar {
-            ToolbarItemGroup(placement: .keyboard) {
-                ForEach(TaskTag.allCases) { taskTag in
-                    Button {
-                        tagColor = taskTag
-                    } label: {
-                        Circle()
-                            .frame(width:25, height:25)
-                            .backgroundStyle(Color(taskTag.rawValue))
-                    }
-
-                    
-                }
-            }
-        }
+        
+        
     }
-    
 }
 
 #Preview {
-    AddTaskView()
+    AddTaskView { task in
+        
+    }
 }

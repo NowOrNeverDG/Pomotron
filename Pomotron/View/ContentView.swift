@@ -13,7 +13,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            AddTaskView()
+            TasksScreenView()
                 .tabItem { Label("Tasks", systemImage: "book.circle.fill") }
             StatsView()
                 .tabItem { Label("Stats", systemImage: "doc") }

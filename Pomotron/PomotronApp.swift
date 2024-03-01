@@ -15,7 +15,7 @@ struct PomotronApp: App {
         WindowGroup {
             ZStack {
                 ContentView()
-                if launchScreenManager.state != .completed { LaunchScreenView() }
+                //if launchScreenManager.state != .completed { LaunchScreenView() }
             }
         }
         .environmentObject(launchScreenManager)
